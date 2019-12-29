@@ -32,10 +32,17 @@
            //加1，然后设置给p
            $("p").css("font-size",(size+1)+"px");
         }
+        //使用jQuery实现字体变小效果
+        function small2(){
+           var font_size = $("p").css("font-size");
+           var size = parseInt(font_size.replace("px",""));
+           $("p").css("font-size",(size-1)+"px");
+        }
      </script>
   </head>
   <body>
     <button onclick="big2();">+</button>
+    <button onclick="small2();">-</button>
     <!--<button onclick="big();">+</button>-->
     <h1>jQuery的使用步骤</h1>
     <p style="font-size: 14px;">1.引用jQuery</p>
