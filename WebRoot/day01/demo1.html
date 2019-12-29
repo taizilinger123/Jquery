@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+     <title>使用jQuery</title>
+     <meta charset="utf-8"/>
+     <!--要想使用jQuery,必须先引入它-->
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <!--由于我们自己写的js需要调用jQuery,所以必须将其写在引用jQuery之后。-->
+     <script type="text/javascript">
+        function big(){
+           //获取所有的p
+           var ps = document.getElementsByTagName("p");
+           for(var i=0;i<ps.length;i++){
+               var p = ps[i];
+               //alert(p.style.fontSize);
+               //获取原始字体大小:14px;
+               var font_size = p.style.fontSize;
+               //获取整数值,再+1
+               var size = parseInt(font_size.replace("px",""));
+               //加1后设置给p
+               p.style.fontSize = (size+1)+"px";
+           }
+        }
+        //使用jQuery实现字体变大效果
+        function big2(){
+           //获取所有的p的字体大小
+           //$("p")是jQuery的元素选择器，可以选中页面上所有的p。
+           //css是jQuery提供的方法，用于操作样式。
+           var font_size = $("p").css("font-size");
+           //alert(font_size);
+           var size = parseInt(font_size.replace("px",""));
+           //加1，然后设置给p
+           $("p").css("font-size",(size+1)+"px");
+        }
+     </script>
+  </head>
+  <body>
+    <button onclick="big2();">+</button>
+    <!--<button onclick="big();">+</button>-->
+    <h1>jQuery的使用步骤</h1>
+    <p style="font-size: 14px;">1.引用jQuery</p>
+    <p style="font-size: 14px;">2.使用jQuery选择器定位节点</p>
+    <p style="font-size: 14px;">3.调用jQuery方法操作节点</p>
+  </body>
+</html>
