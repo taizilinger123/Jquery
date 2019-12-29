@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+     <title>jQuery选择器</title>
+     <meta charset="utf-8"/>
+     <style type="text/css">
+        .ipt {
+            color: red;
+        }
+     </style>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <script type="text/javascript">
+        <!--演示基本选择器-->
+        $("p")
+        $(".ipt")
+        $("#d1")
+        $(".ipt,h1")
+        <!--演示层次选择器-->
+        $("ul li")
+        $("ul>li")
+        $("#nb + li")
+        $("#nb ~ li")
+        <!--演示基本过滤选择器-->
+        $("table tr:first")
+        $("table tr:last")
+        $("table tr:odd")<!--奇数行,从0开始-->
+        $("table tr:even")<!--偶数行-->
+        $("table tr:eq(2)")
+        $("table tr:lt(2)")
+        $("table tr:gt(2)")
+        $("table tr:not(#tr2)")
+     </script>
+  </head>
+  <body>
+     <!--演示基本选择器-->
+     <div id="d1">
+        <h1>jQuery选择器</h1>
+        <p>包括如下种类:</p>
+        <p>1.基本选择器</p>
+        <p class="ipt">2.层次选择器</p>
+        <p class="ipt">3.过滤选择器</p>
+        <p>4.表单选择器</p>
+        <p style="display: none;">5.其他选择器</p>
+     </div>
+     <!--演示层次选择器-->
+     <div id="d2">
+        <ul>
+           <li>杭州</li>
+           <li id="nb">宁波</li>
+           <li>温州</li>
+           <li>嘉兴</li>
+        </ul>
+     </div>
+     <!--演示基本过滤选择器-->
+     <div id="d3">
+         <table>
+             <tr>
+                <td>鼠标</td>
+                <td>黑色</td>
+                <td>90</td>
+             </tr>
+             <tr>
+                <td>键盘</td>
+                <td>白色</td>
+                <td>150</td>
+             </tr>
+             <tr>
+                <td>耳机</td>
+                <td>红色</td>
+                <td>200</td>
+             </tr>
+             <tr>
+                <td>U盘</td>
+                <td>蓝色</td>
+                <td>60</td>
+             </tr>
+         </table>
+     </div>
+  </body>
+</html>
