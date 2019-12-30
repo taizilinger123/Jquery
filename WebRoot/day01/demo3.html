@@ -29,7 +29,20 @@
         $("table tr:lt(2)")
         $("table tr:gt(2)")
         $("table tr:not(#tr2)")
+        <!--内容过滤选择器-->
         $("p:contains('选择')")
+        <!--可见性过滤选择器-->
+        $("p:hidden")
+        $("p:visible")
+        <!--属性过滤选择器-->
+        $("div[id]")
+        $("div[id=d2]")
+        $("div[id!=d2]")
+        <!--状态过滤选择器-->
+        $("input:disabled")
+        $("input:enabled")
+        $("input:checked")
+        $("option:selected")
      </script>
   </head>
   <body>
@@ -76,6 +89,35 @@
                 <td>60</td>
              </tr>
          </table>
+     </div>
+     <!-- 状态过滤选择器 -->
+     <div>
+        <p>
+                                 国籍:
+           <input type="text" value="中国"  disabled/>
+        </p>
+        <p>
+                                 账号:
+           <input type="text"/>
+        </p>
+        <p>
+                                 密码:
+           <input type="password"/>
+        </p>
+        <p>
+                                 篮球:<input type="checkbox" name="fvs"/>
+                                 足球:<input type="checkbox" name="fvs"/>
+                                 乒乓:<input type="checkbox" name="fvs"/>
+        </p>
+        <p>
+           <select>
+               <option>小学</option>
+               <option>初中</option>
+               <option>高中</option>
+               <option>大专</option>
+               <option>本科</option>
+           </select>
+        </p>
      </div>
   </body>
 </html>
