@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+     <title>图片轮播</title>
+     <meta charset="utf-8"/>
+     <style type="text/css">
+         ul {
+            list-style-type: none;
+            border: 2px solid #ccc;
+            width: 480px;
+            height: 360px;
+            margin: 0;
+            padding: 0;
+         }
+         li {
+            width: 480px;
+            height: 360px;
+            margin: 0;
+            padding: 0;
+         }
+         .show {
+            display: block;
+         }
+         .hide {
+            display: none;
+         }
+     </style>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <script type="text/javascript">
+       var index = 0;//记录循环次数
+       function start(){
+          setInterval(function(){
+             //将显示的图片隐藏
+             $("li:visible").hide();
+             //将下一张图片显示
+             //++index%$("li").length
+             $("li:eq("+(++index%$("li").length)+")").show();
+          }, 1000);       
+       }
+     </script>
+  </head>
+  <!-- onload是页面加载事件，表示在页面加载后调用start()函数-->
+  <body onload="start();">
+     <ul id="photos">
+       <li class="show"><img src="../images/f1.jpg"/></li>
+       <li class="hide"><img src="../images/f2.jpg"/></li>
+       <li class="hide"><img src="../images/f3.jpg"/></li>
+       <li class="hide"><img src="../images/f4.jpg"/></li>
+     </ul>
+  </body>
+</html>

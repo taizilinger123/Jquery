@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+     <title>jQuery操作DOM</title>
+     <meta charset="utf-8"/>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <script type="text/javascript">
+        $("#p1").html()
+          "jQuery可以<b>读写</b>节点"
+        $("#p1").text()
+          "jQuery可以读写节点"
+        $("#p1").html("abc<u>123</u>def");
+           abc123def
+        $("#p2").text("kmn");
+           kmn
+        $("#p3 input").val()
+                                  取input输入的值123
+        $("#p3 input").val("abc")
+                                 把input里的123改为abc
+        $("a").attr("href")
+           "http://www.tmooc.cn"
+        $("a").attr("href","http://www.baidu.com")
+     </script>
+  </head>
+  <body>
+      <p id="p1">jQuery可以<b>读写</b>节点</p>
+      <p id="p2">jQuery可以增删节点</p>
+      <p id="p3"><input type="text"/></p>
+      <p id="p4"><a href="http://www.tmooc.cn">点我</a></p>
+  </body>
+</html>
