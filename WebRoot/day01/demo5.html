@@ -3,6 +3,14 @@
   <head>
      <title>jQuery操作DOM</title>
      <meta charset="utf-8"/>
+     <style type="text/css">
+     .big{
+        font-size: 30px;
+     }
+     .ipt {
+        color: red;
+     }
+     </style>
      <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
      <script type="text/javascript">
         $("#p1").html()
@@ -20,6 +28,30 @@
         $("a").attr("href")
            "http://www.tmooc.cn"
         $("a").attr("href","http://www.baidu.com")
+        var li = $("<li>余姚</li>");
+        jQuery添加节点
+        $("ul").prepend(li)
+        $("ul").append(li)
+        $("#nb").before(li)
+        $("#nb").after(li)
+        jQuery删除节点
+        $("#nb").remove()
+        $("li:last").remove()
+        //$("li:last").empty()等价于$("li:first").html("")
+        //$("li:first").addClass("big").addClass("ipt")变大变红
+        //$("li:first").removeClass("big")变大去掉，只变红
+        //$("li:first").removeClass()删除所有样式
+        //$("li:first").toggleClass("ipt")字体样式变红
+        //$("li:first").toggleClass("ipt")再执行一遍恢复变红的样式
+        //$("li:first").hasClass("big")有没有big样式
+        //$("#nb").css("color","blue")增加css样式
+        //遍历节点
+        //$("ul li")等价于$("ul").children()
+        //$("#nb").next()取弟弟
+        //$("#nb").prev()取哥哥
+        //$("#nb").siblings()取所有的兄弟
+        $("ul").find(".ipt")
+        $("ul").parent()
      </script>
   </head>
   <body>
@@ -27,5 +59,11 @@
       <p id="p2">jQuery可以增删节点</p>
       <p id="p3"><input type="text"/></p>
       <p id="p4"><a href="http://www.tmooc.cn">点我</a></p>
+      <ul>
+         <li>杭州</li>
+         <li id="nb">宁波</li>
+         <li class="ipt">温州</li>
+         <li class="ipt">绍兴</li>
+      </ul>
   </body>
 </html>
