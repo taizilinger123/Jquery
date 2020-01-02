@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>计算器</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      .panel {
+        border: 4px solid #ddd;
+        width: 192px;
+        margin: 100px auto;
+        /*border-radius: 6px;*/
+      }
+      .panel p, .panel input {
+        font-family: "微软雅黑";
+        font-size: 20px;
+        margin: 4px;
+        float: left;
+        /*border-radius: 4px;*/
+      }
+      .panel p {
+        width: 122px;
+        height: 26px;
+        border: 1px solid #ddd;
+        padding: 6px;
+        overflow: hidden;
+      }
+      .panel input {
+        width: 40px;
+        height: 40px;
+        border:1px solid #ddd;
+      }
+    </style>
+    <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+       //onload()
+       $(function(){
+          $(".panel").click(function(e){
+              //调用计算方法
+              cal(e);
+          });
+       });
+       //计算
+       function cal(e){
+         //alert(e.target);
+         //获取事件源
+         var obj = e.target;
+         //判断事件源是不是按钮
+         if(obj.nodeName != "INPUT"){
+             return;
+         }
+         //获取按钮的值
+         var value = obj.value;
+         if(value=="C"){
+            //清空计算器的屏幕
+            $("#screen").empty();
+         }else if(value=="="){
+            //执行算式
+            var exp = $("#screen").text();
+            try{
+              //执行
+              var r = eval("("+exp+")");
+              $("#screen").text(r);
+            }catch(e){
+              $("#screen").text("Error.");
+            }
+         }else{
+            //将按钮的值累加到屏幕
+            var oldValue = $("#screen").text();
+            $("#screen").text(oldValue+value);
+         }
+       }
+    </script>
+  </head>
+  <body>
+    <div class="panel">
+      <div>
+        <p id="screen"></p>
+        <input type="button" value="C">
+        <div style="clear:both"></div>
+      </div>
+      <div>
+        <input type="button" value="7">
+        <input type="button" value="8">
+        <input type="button" value="9">
+        <input type="button" value="/">
+        
+        <input type="button" value="4">
+        <input type="button" value="5">
+        <input type="button" value="6">
+        <input type="button" value="*">
+        
+        <input type="button" value="1">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <input type="button" value="-">
+        
+        <input type="button" value="0">
+        <input type="button" value=".">
+        <input type="button" value="=">
+        <input type="button" value="+">
+        
+        <div style="clear:both"></div>
+      </div>
+    </div>    
+  </body>
+</html>

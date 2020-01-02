@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+     <title>jQuery动画</title>
+     <meta charset="utf-8"/>
+     <style type="text/css">
+        #msg {
+           border: 1px solid #ccc;
+           width: 100px;
+           padding: 10px;
+           text-align: center;
+           background-color: #ddd;
+           display: none;
+        }
+        img {
+           position: relative;
+        }
+     </style>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <script type="text/javascript">
+        $(function(){
+           $("#b1").click(f1);
+           $("#b2").click(f2);
+           $("#b3").click(f3);
+           $("#b4").click(f4);
+        });
+        
+        //将图片显示
+        function f1(){
+           //$("img").show(2000);
+           //$("img").slideDown(2000);
+           $("img").fadeIn(2000);
+           //f3();
+        }
+        //将图片隐藏
+        function f2(){
+           //$("img").hide(2000);
+           //$("img").slideUp(2000);
+           $("img").fadeOut(2000);
+           //f3();
+        }
+        //动态弹出提示信息
+        function f3(){
+           $("#msg").fadeIn(2000).fadeOut(1000);
+        }
+        //移动图片
+        function f4(){
+           //{"left":"500px"}是偏移量，表示以左侧边为基准，向右偏移500像素。
+           $("img").animate({"left":"500px"},2000).animate({"top":"300px"},2000);
+        }
+     </script>
+  </head>
+  <body>
+     <p>
+       <button id="b1">显示</button>
+       <button id="b2">隐藏</button>
+       <button id="b3">提示</button>
+       <button id="b4">移动</button>
+     </p>
+     <p>
+       <img src="../images/01.jpg"/>
+     </p>
+     <p id="msg">操作成功</p>  
+  </body>
+</html>
