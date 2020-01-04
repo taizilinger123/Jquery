@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+     <title>英雄联盟注册</title>
+     <meta charset="utf-8"/>
+     <style type="text/css">
+        form {
+           width: 50%;
+           padding: 10px;
+           margin: 100px auto;
+           border: 1px solid #ccc;
+        }
+        p {
+           font-size: 20px;
+        }
+        input {
+           width: 200px;
+           height: 30px;
+        }
+        .ok {
+           color: green;
+           border: 1px solid green;
+        }
+        .error {
+           color: red;
+           border: 1px solid red;
+        }
+     </style>
+     <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+     <script type="text/javascript">
+         //页面加载后，给文本框绑定事件
+         $(function(){
+            //给账号文本框绑定光标移除事件
+            $("#code").blur(check_code);
+         });
+         
+         //验证账号的格式
+         function check_code(){
+            //1.获取账号的值
+            var code = $("#code").val();
+            //2.创建正则表达式，并验证是否匹配
+            var reg = /^\w{3,20}$/;
+            if(!reg.test(code)){
+               //若不匹配，追加错误样式
+               $("#code_msg").addClass("error");
+            }else{
+               //若匹配，先移除错误样式，再追加正确样式
+               $("#code_msg").removeClass("error").addClass("ok");
+            }
+         }
+     </script>
+  </head>
+  <body>
+     <form action="#">
+         <h1>注册账号</h1>
+         <p>
+                                   账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：
+           <input type="text" id="code"/>
+           <span id="code_msg">3-20位字母、数字、下划线的组合</span>
+         </p>
+         <p>
+                                    密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：
+            <input type="password"/>
+            <span>6-30位字母、数字、下划线的组合</span>
+         </p>
+         <p>
+                                确认密码：
+           <input type="password"/>     
+           <span>请再次输入密码</span>                
+         </p>
+         <p>
+                                邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：
+           <input type="text"/>     
+           <span>请输入您的邮箱</span>                
+         </p>
+         <p>
+                                手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：
+           <input type="text"/>     
+           <span>请输入您的手机号</span>                
+         </p>
+         <p align="center">
+           <input type="submit" value="注册"/>                 
+         </p>
+     </form>
+  </body>
+</html>

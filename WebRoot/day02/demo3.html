@@ -15,6 +15,12 @@
         img {
            position: relative;
         }
+        div {
+           background-color: #98bf21;
+           width: 100px;
+           height: 100px;
+           position: relative;
+        }
      </style>
      <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
      <script type="text/javascript">
@@ -23,6 +29,7 @@
            $("#b2").click(f2);
            $("#b3").click(f3);
            $("#b4").click(f4);
+           $("div").click(f5);
         });
         
         //将图片显示
@@ -48,6 +55,10 @@
            //{"left":"500px"}是偏移量，表示以左侧边为基准，向右偏移500像素。
            $("img").animate({"left":"500px"},2000).animate({"top":"300px"},2000);
         }
+        //拉伸div:先纵向拉伸到300px,再横向拉伸到300px,再纵向拉回到100px,再横向拉回到100px;
+        function f5(){
+           $("div").animate({"height":"300px"}, 1000).animate({"width":"300px"}, 1000).animate({"height":"100px"}, 1000).animate({"width":"100px"}, 1000);
+        }
      </script>
   </head>
   <body>
@@ -61,5 +72,6 @@
        <img src="../images/01.jpg"/>
      </p>
      <p id="msg">操作成功</p>  
+     <div><div>
   </body>
 </html>
